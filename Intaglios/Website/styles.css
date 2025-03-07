@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;600&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: 
+        linear-gradient(to right, #1a1a2e, #16213e),
+        url('https://www.transparenttextures.com/patterns/concrete-wall.png'),
+        url('https://www.transparenttextures.com/patterns/old-paper.png');
+    color: #e6e6e6;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: gradientPulse 15s ease infinite;
+    background-size: 400% 400%, auto, auto;
+    min-height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(26, 15, 43, 0.95);
+    border-bottom: 1px solid rgba(200, 160, 220, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1rem 0;
+    margin: 0;
+    list-style: none;
+}
+
+.navbar a {
+    color: #f4d03f;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #f4d03f;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    background: #C490E4;
+    width: 100%;
+}
+
+/* Sections */
+.section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(200, 160, 220, 0.3);
+    margin: 4rem auto;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section::after {
+    content: '🕉';
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    opacity: 0.1;
+}
+
+/* Typography */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: #f4d03f;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                 0 0 2px rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: #f4d03f;
+}
+
+/* Content Containers */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.typewriter {
+    animation: typewriter 2s steps(40);
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 1rem auto;
+    min-height: 80px;
+    width: fit-content;
+}
+
+.below-button {
+    margin-top: 2rem;
+    width: fit-content;
+}
+
+/* Honourable Mentions */
+.honourable-container {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.honourable-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent 5%,
+        #f4d03f 20%,
+        #f4d03f 80%,
+        transparent 95%);
+    box-shadow: 0 0 15px rgba(244, 208, 63, 0.2);
+}
+
+.honourable-card {
+    background: rgba(10, 25, 47, 0.9);
+    border: 1px solid #f4d03f;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-image: url('https://www.transparenttextures.com/patterns/cardboard.png');
+}
+
+.honourable-card::before {
+    content: attr(data-year);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a2e;
+    color: #f4d03f;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #f4d03f;
+    z-index: 1;
+}
+
+.honourable-card:hover {
+    transform: translateY(-5px) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.2);
+}
+
+/* Spiritual Elements */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(45deg, #9F7FBE 0%, #6C567B 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #F4F4F4;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    transform: rotate(45deg);
+    animation: energyFlow 3s infinite;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 5px 25px rgba(159, 127, 190, 0.3);
+}
+
+button:focus, .navbar a:focus {
+    outline: 2px solid #f4d03f;
+}
+
+/* Footer */
+footer {
+    background: rgba(10, 25, 47, 0.95);
+    border-top: 2px solid rgba(244, 208, 63, 0.2);
+    padding: 3rem;
+    position: relative;
+}
+
+footer::before {
+    content: "“The story of women's struggle for equality belongs to no single feminist nor to any one organization but to the collective efforts of all who care about human rights.” — Gloria Steinem";
+    display: block;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes gradientPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cosmicFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes energyFlow {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) rotate(45deg); }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes typewriter {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes sparkle {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .navbar a {
+        padding: 0.8rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+    }
+    
+    .section::before {
+        left: -15px;
+    }
+    
+    .honourable-card {
+        width: 95%;
+        margin: 1.5rem auto;
+    }
+    
+    footer::before {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .typewriter {
+        white-space: normal;
+        animation: none;
+        min-height: auto;
+    }
+    
+    button {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Image Effects */
+.honourable-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.honourable-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05) sepia(0.3) hue-rotate(10deg);
+}
+
+.honourable-card:hover::after {
+    content: '🌸';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 2;
+}
