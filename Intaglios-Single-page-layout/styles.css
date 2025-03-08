@@ -1,0 +1,409 @@
+/* Importing Nature-inspired fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@400;600&display=swap');
+
+/* Root color scheme */
+:root {
+    --earth-green: #2d5a27;
+    --leaf-yellow: #f4e409;
+    --sky-blue: #a3d5ff;
+    --soil-brown: #5c4033;
+    --blossom-pink: #ffb7c5;
+    --light-background: #f9f9f9;
+    --dark-background: #222;
+    --text-color: #333;
+    /* New gradient colors */
+    --morning-mist: #e6f3ff;
+    --sunbeam: #fff9e6;
+}
+
+/* Decorative Line with Icon (NEW) */
+.decorative-line {
+    margin: 1rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.decorative-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--leaf-yellow), transparent);
+    z-index: 0;
+}
+
+.decorative-line svg {
+    position: relative;
+    z-index: 1;
+    background: var(--light-background);
+    padding: 0 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(
+        165deg,
+        var(--sky-blue) 0%,
+        var(--morning-mist) 30%,
+        var(--sunbeam) 100%);
+    animation: backgroundFade 15s ease-in-out infinite;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    line-height: 1.4; /* Reduced from default 1.6 */
+    margin: 0;
+}
+
+/* Header Section */
+header {
+    background: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') center/cover no-repeat, linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.7));
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+    animation: fadeInHeader 3s ease-out;
+    background: linear-gradient(
+        to bottom right,
+        rgba(45, 90, 39, 0.9),
+        rgba(67, 133, 58, 0.7)  /* Deeper green variant */
+    ), url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') center/cover no-repeat;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    animation: headerTextAnim 1s ease-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    animation: fadeInText 2s ease-out;
+}
+
+/* Navigation Section */
+nav {
+    background: var(--earth-green);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    animation: slideInNav 1.5s ease-out;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background: var(--blossom-pink);
+    color: var(--soil-brown);
+}
+
+/* Section Styling */
+.section {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    opacity: 0;
+    animation: fadeInSection 2s ease-out forwards;
+}
+
+.section:nth-child(even) {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Flower Divider */
+.flower-divider {
+    height: 100px;
+    background: url('https://images.unsplash.com/photo-1516053256215-940222132676?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80') center/cover no-repeat;
+    opacity: 0.7;
+    margin: 2rem 0;
+    animation: fadeInFlower 2s ease-out;
+}
+
+/* Event and Achievement Cards */
+.event-card, .achievement-card {
+    background: white;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideInCard 1s ease-out forwards;
+}
+
+.event-card h3, .achievement-card h3 {
+    font-size: 1.8rem;
+    color: var(--earth-green);
+    margin-bottom: 1rem;
+}
+
+.event-card p, .achievement-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.event-card a, .achievement-card a {
+    text-decoration: none;
+    color: var(--blossom-pink);
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.event-card a:hover, .achievement-card a:hover {
+    color: var(--soil-brown);
+}
+
+/* Nature Quote Styling */
+.nature-quote {
+    font-style: italic;
+    border-left: 4px solid var(--leaf-yellow);
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    animation: fadeInQuote 2s ease-out;
+}
+
+/* Button Styles */
+.btn {
+    background: var(--earth-green);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: var(--soil-brown);
+}
+
+/* Button Group Layout */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .show-menu {
+        display: flex;
+    }
+
+    #involve .btn {
+        margin: 0.5rem 0; /* Adds vertical spacing */
+        width: 100%; /* Makes buttons full-width for better mobile UX */
+      }
+    .button-group {
+        width: 100%;
+    }      
+}
+
+/* Animations */
+@keyframes backgroundFade {
+    0%, 100% {
+        background: linear-gradient(
+            165deg,
+            var(--sky-blue) 0%,
+            var(--morning-mist) 30%,
+            var(--sunbeam) 100%
+        );
+    }
+    50% {
+        background: linear-gradient(
+            195deg,
+            var(--sky-blue) 0%,
+            rgba(244, 228, 9, 0.15) 30%,  /* Subtle leaf-yellow tint */
+            var(--sunbeam) 100%
+        );
+    }
+}
+
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headerTextAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInNav {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFlower {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInCard {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInQuote {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Ensure pulse animation exists (if not already present) */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: var(--dark-background);
+    color: white;
+}
+
+body.dark-mode header {
+    background: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') center/cover no-repeat, linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.7));
+}
+
+body.dark-mode nav {
+    background: var(--soil-brown);
+}
+
+body.dark-mode .section {
+    background: var(--dark-background);
+    color: white;
+}
+
+body.dark-mode .btn {
+    background: var(--soil-brown);
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--earth-green);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Back to Top Button (NEW) */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--earth-green);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 1000;
+}
